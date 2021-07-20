@@ -16,6 +16,7 @@ func TestHit(t *testing.T) {
 	now, _ := time.Parse(time.RFC3339, "2006-01-02T15:04:10Z")
 	duration := time.Minute
 	limiter := pkg.NewLimiter()
+	defer limiter.Close()
 	for i := 0; i < workerCount; i++ {
 		go func() {
 			defer wg.Done()
