@@ -45,7 +45,7 @@ func (this *Limiter) cleanup() {
 
 	n := len(this.data)
 	for n > 0 {
-		id := rand.Intn(len(this.data))
+		id := rand.Intn(n)
 		if this.data[id].expiration.After(time.Now()) {
 			break
 		}
