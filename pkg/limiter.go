@@ -36,7 +36,7 @@ func NewLimiter() *Limiter {
 }
 
 func (this *Limiter) Close() {
-	this.closeSign <- struct{}{}
+	close(this.closeSign)
 }
 
 func (this *Limiter) cleanup() {
